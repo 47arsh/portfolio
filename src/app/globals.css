@@ -108,9 +108,17 @@
     padding-block: 88px;
   }
 
+  .section-dense {
+    padding-block: 48px;
+  }
+
   @media (min-width: 768px) {
     .section {
       padding-block: 136px;
+    }
+
+    .section-dense {
+      padding-block: 72px;
     }
   }
 

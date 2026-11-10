@@ -9,6 +9,8 @@ type SectionShellProps = {
   intro?: ReactNode;
   children?: ReactNode;
   className?: string;
+  titleClassName?: string;
+  dense?: boolean;
 };
 
 /**
@@ -23,6 +25,8 @@ export function SectionShell({
   intro,
   children,
   className,
+  titleClassName,
+  dense = false,
 }: SectionShellProps) {
   const headingId = `${id}-title`;
 
@@ -30,7 +34,11 @@ export function SectionShell({
     <section
       id={id}
       aria-labelledby={headingId}
-      className={cx("section border-t border-line", className)}
+      className={cx(
+        dense ? "section-dense" : "section",
+        "border-t border-line",
+        className,
+      )}
     >
       <div className="shell">
         <div className="grid gap-10 md:grid-cols-[148px_minmax(0,1fr)] md:gap-12 lg:grid-cols-[168px_minmax(0,1fr)] lg:gap-16">
@@ -45,7 +53,10 @@ export function SectionShell({
           <div className="min-w-0">
             <h2
               id={headingId}
-              className="display text-[clamp(2.35rem,4.6vw,3.6rem)] text-balance"
+              className={cx(
+                "display text-balance",
+                titleClassName ?? "text-[clamp(2.35rem,4.6vw,3.6rem)]",
+              )}
             >
               {title}
             </h2>
