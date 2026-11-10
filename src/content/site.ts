@@ -42,13 +42,13 @@ export const site: SiteContent = {
     problem: "{{TODO: 2 to 3 sentences on the problem it solves}}",
     built: "{{TODO: 2 to 3 sentences on what you built}}",
     stack: [
-      "{{TODO: stack tag, e.g. Next.js}}",
-      "{{TODO: stack tag}}",
-      "{{TODO: stack tag}}",
+      "{{TODO: stack tag 1, e.g. Next.js}}",
+      "{{TODO: stack tag 2}}",
+      "{{TODO: stack tag 3}}",
     ],
     metrics: [
       {
-        label: "{{TODO: metric label — only if the number is true}}",
+        label: "{{TODO: metric label, only if true}}",
         value: "{{TODO: value}}",
       },
     ],
@@ -63,18 +63,18 @@ export const site: SiteContent = {
   // TODO(owner): Replace with your micro-tools, best first. Add or remove rows.
   shipped: [
     {
-      title: "{{TODO: project title}}",
-      description: "{{TODO: one-line description}}",
-      stack: ["{{TODO: stack}}"],
-      url: "{{TODO_URL: live project or repository link}}",
-      date: "{{TODO: month year}}",
+      title: "{{TODO: project 1 title}}",
+      description: "{{TODO: one-line description of project 1}}",
+      stack: ["{{TODO: stack for project 1}}"],
+      url: "{{TODO_URL: live project or repository link for project 1}}",
+      date: "{{TODO: month year for project 1}}",
     },
     {
-      title: "{{TODO: project title}}",
-      description: "{{TODO: one-line description}}",
-      stack: ["{{TODO: stack}}"],
-      url: "{{TODO_URL: live project or repository link}}",
-      date: "{{TODO: month year}}",
+      title: "{{TODO: project 2 title}}",
+      description: "{{TODO: one-line description of project 2}}",
+      stack: ["{{TODO: stack for project 2}}"],
+      url: "{{TODO_URL: live project or repository link for project 2}}",
+      date: "{{TODO: month year for project 2}}",
     },
   ],
 
@@ -82,39 +82,39 @@ export const site: SiteContent = {
   // featured: true and write the `learned` line. Add or remove entries freely.
   openSource: [
     {
-      project: "{{TODO: project name}}",
-      projectUrl: "{{TODO_URL: project repository URL}}",
-      description: "{{TODO: one sentence on what the change did}}",
-      prUrl: "{{TODO_URL: pull request URL}}",
-      mergedAt: "{{TODO: month year}}",
+      project: "{{TODO: project 1 name}}",
+      projectUrl: "{{TODO_URL: repository URL for project 1}}",
+      description: "{{TODO: one sentence on the change in project 1}}",
+      prUrl: "{{TODO_URL: PR URL for project 1}}",
+      mergedAt: "{{TODO: month year for project 1}}",
       featured: true,
-      learned: "{{TODO: what the review taught you}}",
+      learned: "{{TODO: what the review of project 1 taught you}}",
     },
     {
-      project: "{{TODO: project name}}",
-      projectUrl: "{{TODO_URL: project repository URL}}",
-      description: "{{TODO: one sentence on what the change did}}",
-      prUrl: "{{TODO_URL: pull request URL}}",
-      mergedAt: "{{TODO: month year}}",
+      project: "{{TODO: project 2 name}}",
+      projectUrl: "{{TODO_URL: repository URL for project 2}}",
+      description: "{{TODO: one sentence on the change in project 2}}",
+      prUrl: "{{TODO_URL: PR URL for project 2}}",
+      mergedAt: "{{TODO: month year for project 2}}",
     },
   ],
 
   // TODO(owner): Three or four remixes. Add or remove entries freely.
   tracks: [
     {
-      title: "{{TODO: remix title}}",
-      note: "{{TODO: one-line note about the track}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL}}",
+      title: "{{TODO: remix 1 title}}",
+      note: "{{TODO: one-line note about remix 1}}",
+      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 1}}",
     },
     {
-      title: "{{TODO: remix title}}",
-      note: "{{TODO: one-line note about the track}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL}}",
+      title: "{{TODO: remix 2 title}}",
+      note: "{{TODO: one-line note about remix 2}}",
+      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 2}}",
     },
     {
-      title: "{{TODO: remix title}}",
-      note: "{{TODO: one-line note about the track}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL}}",
+      title: "{{TODO: remix 3 title}}",
+      note: "{{TODO: one-line note about remix 3}}",
+      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 3}}",
     },
   ],
 
@@ -139,12 +139,12 @@ export const site: SiteContent = {
   // the section entirely.
   earlier: [
     {
-      title: "{{TODO: project title}}",
-      description: "{{TODO: one line on what it was}}",
+      title: "{{TODO: earlier project 1 title}}",
+      description: "{{TODO: one line on what earlier project 1 was}}",
     },
     {
-      title: "{{TODO: project title}}",
-      description: "{{TODO: one line on what it was}}",
+      title: "{{TODO: earlier project 2 title}}",
+      description: "{{TODO: one line on what earlier project 2 was}}",
     },
   ],
 

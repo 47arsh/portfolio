@@ -40,10 +40,10 @@ Replace each value below in the content file, then re-run `pnpm placeholders`.
 | `featured.oneLiner` | 41 | text | one-line description of anytimedesk.in |
 | `featured.problem` | 42 | text | 2 to 3 sentences on the problem it solves |
 | `featured.built` | 43 | text | 2 to 3 sentences on what you built |
-| `featured.stack[0]` | 45 | text | stack tag, e.g. Next.js |
-| `featured.stack[1]` | 46 | text | stack tag |
-| `featured.stack[2]` | 47 | text | stack tag |
-| `featured.metrics[0].label` | 51 | text | metric label — only if the number is true |
+| `featured.stack[0]` | 45 | text | stack tag 1, e.g. Next.js |
+| `featured.stack[1]` | 46 | text | stack tag 2 |
+| `featured.stack[2]` | 47 | text | stack tag 3 |
+| `featured.metrics[0].label` | 51 | text | metric label, only if true |
 | `featured.metrics[0].value` | 52 | text | value |
 | `featured.demoVideoUrl` | 55 | URL | Loom share URL for the demo video |
 | `featured.screenshots[0]` | 57 | URL | /images/anytimedesk-1.png — add the screenshot to public/images |
@@ -54,46 +54,46 @@ Replace each value below in the content file, then re-run `pnpm placeholders`.
 
 | Field | Line | Kind | What to provide |
 | --- | --: | --- | --- |
-| `shipped[0].title` | 66 | text | project title |
-| `shipped[0].description` | 67 | text | one-line description |
-| `shipped[0].stack[0]` | 68 | text | stack |
-| `shipped[0].url` | 69 | URL | live project or repository link |
-| `shipped[0].date` | 70 | text | month year |
-| `shipped[1].title` | 73 | text | project title |
-| `shipped[1].description` | 74 | text | one-line description |
-| `shipped[1].stack[0]` | 75 | text | stack |
-| `shipped[1].url` | 76 | URL | live project or repository link |
-| `shipped[1].date` | 77 | text | month year |
+| `shipped[0].title` | 66 | text | project 1 title |
+| `shipped[0].description` | 67 | text | one-line description of project 1 |
+| `shipped[0].stack[0]` | 68 | text | stack for project 1 |
+| `shipped[0].url` | 69 | URL | live project or repository link for project 1 |
+| `shipped[0].date` | 70 | text | month year for project 1 |
+| `shipped[1].title` | 73 | text | project 2 title |
+| `shipped[1].description` | 74 | text | one-line description of project 2 |
+| `shipped[1].stack[0]` | 75 | text | stack for project 2 |
+| `shipped[1].url` | 76 | URL | live project or repository link for project 2 |
+| `shipped[1].date` | 77 | text | month year for project 2 |
 
 ## Open source
 
 | Field | Line | Kind | What to provide |
 | --- | --: | --- | --- |
-| `openSource[0].project` | 85 | text | project name |
-| `openSource[0].projectUrl` | 86 | URL | project repository URL |
-| `openSource[0].description` | 87 | text | one sentence on what the change did |
-| `openSource[0].prUrl` | 88 | URL | pull request URL |
-| `openSource[0].mergedAt` | 89 | text | month year |
-| `openSource[0].learned` | 91 | text | what the review taught you |
-| `openSource[1].project` | 94 | text | project name |
-| `openSource[1].projectUrl` | 95 | URL | project repository URL |
-| `openSource[1].description` | 96 | text | one sentence on what the change did |
-| `openSource[1].prUrl` | 97 | URL | pull request URL |
-| `openSource[1].mergedAt` | 98 | text | month year |
+| `openSource[0].project` | 85 | text | project 1 name |
+| `openSource[0].projectUrl` | 86 | URL | repository URL for project 1 |
+| `openSource[0].description` | 87 | text | one sentence on the change in project 1 |
+| `openSource[0].prUrl` | 88 | URL | PR URL for project 1 |
+| `openSource[0].mergedAt` | 89 | text | month year for project 1 |
+| `openSource[0].learned` | 91 | text | what the review of project 1 taught you |
+| `openSource[1].project` | 94 | text | project 2 name |
+| `openSource[1].projectUrl` | 95 | URL | repository URL for project 2 |
+| `openSource[1].description` | 96 | text | one sentence on the change in project 2 |
+| `openSource[1].prUrl` | 97 | URL | PR URL for project 2 |
+| `openSource[1].mergedAt` | 98 | text | month year for project 2 |
 
 ## Sound
 
 | Field | Line | Kind | What to provide |
 | --- | --: | --- | --- |
-| `tracks[0].title` | 105 | text | remix title |
-| `tracks[0].note` | 106 | text | one-line note about the track |
-| `tracks[0].youtubeUrl` | 107 | URL | YouTube video URL |
-| `tracks[1].title` | 110 | text | remix title |
-| `tracks[1].note` | 111 | text | one-line note about the track |
-| `tracks[1].youtubeUrl` | 112 | URL | YouTube video URL |
-| `tracks[2].title` | 115 | text | remix title |
-| `tracks[2].note` | 116 | text | one-line note about the track |
-| `tracks[2].youtubeUrl` | 117 | URL | YouTube video URL |
+| `tracks[0].title` | 105 | text | remix 1 title |
+| `tracks[0].note` | 106 | text | one-line note about remix 1 |
+| `tracks[0].youtubeUrl` | 107 | URL | YouTube video URL for remix 1 |
+| `tracks[1].title` | 110 | text | remix 2 title |
+| `tracks[1].note` | 111 | text | one-line note about remix 2 |
+| `tracks[1].youtubeUrl` | 112 | URL | YouTube video URL for remix 2 |
+| `tracks[2].title` | 115 | text | remix 3 title |
+| `tracks[2].note` | 116 | text | one-line note about remix 3 |
+| `tracks[2].youtubeUrl` | 117 | URL | YouTube video URL for remix 3 |
 
 ## Build log
 
@@ -110,10 +110,10 @@ Replace each value below in the content file, then re-run `pnpm placeholders`.
 
 | Field | Line | Kind | What to provide |
 | --- | --: | --- | --- |
-| `earlier[0].title` | 142 | text | project title |
-| `earlier[0].description` | 143 | text | one line on what it was |
-| `earlier[1].title` | 146 | text | project title |
-| `earlier[1].description` | 147 | text | one line on what it was |
+| `earlier[0].title` | 142 | text | earlier project 1 title |
+| `earlier[0].description` | 143 | text | one line on what earlier project 1 was |
+| `earlier[1].title` | 146 | text | earlier project 2 title |
+| `earlier[1].description` | 147 | text | one line on what earlier project 2 was |
 
 ## Notes
 
