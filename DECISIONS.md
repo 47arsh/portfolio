@@ -106,9 +106,18 @@ problems, worst first:
   Lighthouse mobile run to 99, but offscreen `contain-intrinsic-size`
   estimates made anchor jumps land above the target and made the active-nav
   calculation wrong. Native scroll accuracy matters more than the score.
-- **Lighthouse, production build, mobile preset:** the final run scored
-  Performance 99, Accessibility 100, Best Practices 100, SEO 100, with LCP
-  0.8 s and CLS 0. Total blocking time (Next/React hydration) is the only
-  variable metric and earlier runs ranged 90 to 99. Re-run after real images
-  and content are added; image weight is the main thing the owner controls.
+- **The film grain lives in the page background, not a fixed overlay.** The
+  redesigned hero has continuous motion (waveform drift, status pulse, scroll
+  cue). During measurement, the fixed full-viewport grain layer forced the page
+  to re-raster on every animation frame: Performance fell to 62 with 7.8 s of
+  total blocking time. Painting the same noise into the `body` background and
+  dropping the overlay raised the same page to 97 to 100 with 50 to 240 ms TBT.
+  The texture still covers the whole page and stays within the 2 to 3 percent
+  visual weight in `DESIGN.md`.
+- **Lighthouse, production build, mobile preset:** after the redesign, four
+  consecutive home-page passes scored Performance 97, 99, 100 and 100, with
+  Accessibility 100, Best Practices 100 and SEO 100 in every pass. LCP was
+  0.9 s, CLS 0, and total blocking time ranged 50 to 240 ms. Performance is the
+  only variable category. Re-run after real images are added; image weight is
+  the main thing the owner controls.
 

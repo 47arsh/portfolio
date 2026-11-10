@@ -65,7 +65,7 @@ A single, almost invisible radial warmth sits behind the hero: `--hero-warmth` a
 - Respect `prefers-reduced-motion`: mask reveal, drift, pulse and reveals collapse to static.
 
 ## Background texture
-- Faint film grain at 2.8% opacity, fixed, pointer-events none, over the whole page.
+- Faint film grain at roughly 4.5% intrinsic opacity, painted into the page background and repeated at 200px. It is intentionally not a fixed overlay: a full-viewport fixed layer forced the page to re-raster on every animation frame and cost several seconds of main-thread time.
 - No gradients except the single 6% radial hero warmth described above.
 
 ## Imagery
