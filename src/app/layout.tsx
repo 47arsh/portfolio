@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { ScrollProgress } from "@/components/ScrollProgress";
 import { site } from "@/content/site";
 import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -42,6 +43,9 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${inter.variable} ${geistMono.variable}`}
     >
       <body className="min-h-dvh bg-bg text-ink">
+        <div aria-hidden="true" className="grain" />
+        <ScrollProgress />
+
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:border focus:border-gold focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:text-ink"
