@@ -51,3 +51,30 @@ chosen and why, so the owner can revisit it.
 - **Images stay local or YouTube-only.** Next/Image remote patterns are limited
   to `i.ytimg.com` for video thumbnails. Screenshots and the optional photo are
   local files under `public/`.
+
+## SEO and polish
+
+- **One metadata module builds every canonical, OG and Twitter value.** It reads
+  `NEXT_PUBLIC_SITE_URL` and falls back to `http://localhost:3000` in local
+  development. Placeholder names and taglines never leak into metadata: they
+  become `Portfolio` and `A personal portfolio.` until filled. The case study
+  page sets an absolute title so the root title template does not stack.
+- **The OG image uses the runtime's default sans, not a downloaded serif.** The
+  spec only asks for black, a gold hairline, name and tagline. Fetching the
+  Instrument Serif file inside the image route would add a network dependency to
+  a page that must never fail; the system-font version renders reliably.
+- **The 404 page is a real route with `noindex`.** It shares the site shell so a
+  mistyped URL still feels like the same site, and it points back to the work.
+- **Nav anchors are route-aware.** On `/` the nav uses `#section` links; on the
+  case study page it uses `/#section`, so links work from both pages. Active
+  tracking only runs on the home page, where those sections exist.
+- **`content-visibility` was rejected after testing.** It raised a synthetic
+  Lighthouse mobile run to 99, but offscreen `contain-intrinsic-size`
+  estimates made anchor jumps land above the target and made the active-nav
+  calculation wrong. Native scroll accuracy matters more than the score.
+- **Lighthouse, production build, mobile preset:** the final run scored
+  Performance 99, Accessibility 100, Best Practices 100, SEO 100, with LCP
+  0.8 s and CLS 0. Total blocking time (Next/React hydration) is the only
+  variable metric and earlier runs ranged 90 to 99. Re-run after real images
+  and content are added; image weight is the main thing the owner controls.
+
