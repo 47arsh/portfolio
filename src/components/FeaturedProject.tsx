@@ -1,56 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/content/site";
-import { cx, displayHost } from "@/lib/format";
-import {
-  isPlaceholderUrl,
-  stripPlaceholder,
-} from "@/lib/placeholders";
+import { displayHost } from "@/lib/format";
+import { stripPlaceholder } from "@/lib/placeholders";
 import { ExternalLink } from "./ExternalLink";
 import { ArrowRight, ArrowUpRight } from "./icons";
 import { LoomFacade } from "./LoomFacade";
+import { Metrics } from "./Metrics";
 import { Placeholder } from "./Placeholder";
 import { Reveal } from "./Reveal";
+import { Screenshot } from "./Screenshot";
 import { SectionHeading } from "./SectionHeading";
 import { TagList } from "./TagList";
-
-const isDev = process.env.NODE_ENV !== "production";
-
-function Screenshot({
-  src,
-  alt,
-  index,
-}: {
-  src: string;
-  alt: string;
-  index: number;
-}) {
-  if (isPlaceholderUrl(src)) {
-    return (
-      <div
-        className={cx(
-          "flex aspect-[16/10] items-center justify-center rounded-[10px] border bg-surface",
-          isDev ? "border-dashed border-gold/35" : "border-line",
-        )}
-        data-placeholder=""
-      >
-        <span className="eyebrow">Screenshot {index + 1}</span>
-      </div>
-    );
-  }
-
-  return (
-    <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] border border-line bg-surface">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        sizes="(min-width: 768px) 50vw, 100vw"
-        className="object-cover"
-      />
-    </div>
-  );
-}
 
 export function FeaturedProject() {
   const { featured } = site;
@@ -107,25 +67,7 @@ export function FeaturedProject() {
 
             <TagList items={featured.stack} className="mt-8" />
 
-            {featured.metrics.length > 0 ? (
-              <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-line pt-6 sm:flex sm:gap-14">
-                {featured.metrics.map((metric, index) => (
-                  <div key={`${metric.label}-${index}`}>
-                    <dt className="eyebrow">
-                      <Placeholder value={metric.label} />
-                    </dt>
-                    <dd
-                      className={cx(
-                        "display mt-1 text-2xl md:text-3xl",
-                        index === 0 ? "text-gold" : "text-ink",
-                      )}
-                    >
-                      <Placeholder value={metric.value} />
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-            ) : null}
+            <Metrics items={featured.metrics} className="mt-8" />
 
             <div className="mt-8">
               <LoomFacade
@@ -141,7 +83,7 @@ export function FeaturedProject() {
                     key={`${src}-${index}`}
                     src={src}
                     alt={`${projectName} screenshot ${index + 1}`}
-                    index={index}
+                    label={`Screenshot ${index + 1}`}
                   />
                 ))}
               </div>
