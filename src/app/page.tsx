@@ -5,6 +5,7 @@ import { FeaturedProject } from "@/components/FeaturedProject";
 import { Hero } from "@/components/Hero";
 import { OpenSource } from "@/components/OpenSource";
 import { ShippedList } from "@/components/ShippedList";
+import { Sound } from "@/components/Sound";
 
 export default function HomePage() {
   return (
@@ -13,6 +14,7 @@ export default function HomePage() {
       <FeaturedProject />
       <ShippedList />
       <OpenSource />
+      <Sound />
       <Earlier />
       <About />
       <Contact />
