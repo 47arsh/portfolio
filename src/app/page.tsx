@@ -14,9 +14,9 @@ export default function HomePage() {
     <>
       <Hero />
       <FeaturedProject />
-      <ShippedList />
       <OpenSource />
       <ActivityStrip />
+      <ShippedList />
       <Sound />
       <BuildLog />
       <Earlier />

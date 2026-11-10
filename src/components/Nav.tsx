@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { id: "open-source", label: "Open source" },
   { id: "sound", label: "Sound" },
   { id: "log", label: "Log" },
+  { id: "about", label: "About" },
   { id: "contact", label: "Contact" },
 ] as const;
 
@@ -88,7 +89,7 @@ export function Nav({ siteName }: { siteName: string }) {
           : "border-transparent bg-transparent",
       )}
     >
-      <div className="shell flex h-16 items-center justify-between gap-4">
+      <div className="shell flex h-[var(--nav-h)] items-center justify-between gap-4">
         <Link
           href="/"
           className="flex min-w-0 items-center gap-2.5"
