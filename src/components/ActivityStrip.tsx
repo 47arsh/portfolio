@@ -9,18 +9,38 @@ function GraphFallback() {
   return (
     <div className="mt-3">
       <div aria-hidden="true" className="flex gap-[3px]">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <span
-            key={index}
-            className="block size-2 rounded-[2px] bg-line"
-          />
+        {Array.from({ length: 26 }).map((_, index) => (
+          <span key={index} className="block size-2 rounded-[2px] bg-line" />
         ))}
       </div>
-      <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-        {isDev
-          ? "Add GITHUB_TOKEN to show contributions"
-          : "Contribution data unavailable"}
+      <p className="eyebrow mt-3">
+        {isDev ? "Set GITHUB_TOKEN for the live graph" : "Graph unavailable"}
       </p>
+    </div>
+  );
+}
+
+function Stat({
+  label,
+  value,
+  gold = false,
+}: {
+  label: string;
+  value: number | null | undefined;
+  gold?: boolean;
+}) {
+  return (
+    <div>
+      <p
+        className={
+          gold
+            ? "display text-[clamp(2rem,3vw,2.6rem)] leading-none text-gold"
+            : "display text-[clamp(2rem,3vw,2.6rem)] leading-none text-ink"
+        }
+      >
+        {value ?? <span className="text-muted">—</span>}
+      </p>
+      <p className="eyebrow mt-2">{label}</p>
     </div>
   );
 }
@@ -32,43 +52,47 @@ export async function ActivityStrip() {
   ]);
 
   const solved = leetcode?.solved ?? site.stats.leetcode.solved;
-  const streak = leetcode?.streak ?? site.stats.leetcode.streak;
+  const rating = site.stats.leetcode.rating;
   const pullRequests = site.openSource.length;
 
   return (
     <section
       id="activity"
       aria-label="Activity"
-      className="border-y border-line"
+      className="border-y border-line bg-surface/25"
     >
-      <div className="shell grid gap-6 py-8 md:grid-cols-[1.5fr_1fr_1fr] md:items-center md:gap-10">
-        <div>
-          <p className="eyebrow">GitHub</p>
-          {github ? <GitHubGraph activity={github} /> : <GraphFallback />}
-        </div>
+      <div className="shell">
+        <div className="grid gap-8 py-9 md:grid-cols-[148px_minmax(0,1fr)] md:gap-12 lg:grid-cols-[168px_minmax(0,1fr)] lg:gap-16">
+          <p className="eyebrow flex items-center gap-3">
+            <span aria-hidden="true" className="hairline-gold" />
+            Activity
+          </p>
 
-        <div className="border-t border-line pt-6 md:border-l md:border-t-0 md:pl-10 md:pt-0">
-          <p className="eyebrow">LeetCode</p>
-          <div className="mt-2 flex gap-10">
-            <div>
-              <p className="display text-2xl text-gold">
-                {solved ?? <span className="text-muted">—</span>}
-              </p>
-              <p className="eyebrow mt-1">Solved</p>
+          <div className="grid gap-8 sm:grid-cols-[1.5fr_1fr_0.8fr] sm:gap-10">
+            <div className="min-w-0">
+              <p className="eyebrow">GitHub</p>
+              {github ? (
+                <GitHubGraph activity={github} />
+              ) : (
+                <GraphFallback />
+              )}
             </div>
-            <div>
-              <p className="display text-2xl">
-                {streak ?? <span className="text-muted">—</span>}
-              </p>
-              <p className="eyebrow mt-1">Day streak</p>
+
+            <div className="border-t border-line pt-6 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0">
+              <p className="eyebrow">LeetCode</p>
+              <div className="mt-3 flex gap-9">
+                <Stat label="Solved" value={solved} gold />
+                <Stat label="Rating" value={rating} />
+              </div>
+            </div>
+
+            <div className="border-t border-line pt-6 sm:border-l sm:border-t-0 sm:pl-10 sm:pt-0">
+              <p className="eyebrow">Open source</p>
+              <div className="mt-3">
+                <Stat label="Pull requests" value={pullRequests} />
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="border-t border-line pt-6 md:border-l md:border-t-0 md:pl-10 md:pt-0">
-          <p className="eyebrow">Open source</p>
-          <p className="display mt-2 text-2xl">{pullRequests}</p>
-          <p className="eyebrow mt-1">Pull requests</p>
         </div>
       </div>
     </section>

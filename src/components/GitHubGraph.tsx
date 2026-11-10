@@ -35,9 +35,12 @@ export function GitHubGraph({ activity }: { activity: GitHubActivity }) {
           </div>
         ))}
       </div>
-      <p className="mt-3 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-        {activity.total} contributions · last 6 months
-      </p>
+      <div className="mt-3 flex items-baseline gap-2.5">
+        <span className="display text-[clamp(1.6rem,2.4vw,2rem)] leading-none text-ink">
+          {activity.total}
+        </span>
+        <span className="eyebrow">contributions / 6 months</span>
+      </div>
     </>
   );
 }
