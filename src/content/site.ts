@@ -41,14 +41,13 @@ export const site: SiteContent = {
     name: "AnytimeDesk",
     slug: "anytimedesk",
     url: "https://anytimedesk.in",
-    oneLiner: "{{TODO: one-line description of anytimedesk.in}}",
+    role: "Founder",
+    // DRAFTED: owner to review.
+    oneLiner:
+      "A WhatsApp front desk for businesses. It handles incoming customer messages so people don't wait for someone to be free.",
     problem: "{{TODO: 2 to 3 sentences on the problem it solves}}",
     built: "{{TODO: 2 to 3 sentences on what you built}}",
-    stack: [
-      "{{TODO: stack tag 1, e.g. Next.js}}",
-      "{{TODO: stack tag 2}}",
-      "{{TODO: stack tag 3}}",
-    ],
+    stack: ["TypeScript", "Node", "pnpm monorepo", "Postgres", "Redis", "WhatsApp"],
     metrics: [
       {
         label: "{{TODO: metric label, only if true}}",

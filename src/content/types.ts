@@ -32,6 +32,8 @@ export interface FeaturedProject {
   name: string;
   slug: string;
   url: string;
+  /** Role on the project, e.g. Founder. */
+  role?: string;
   oneLiner: string;
   problem: string;
   built: string;
