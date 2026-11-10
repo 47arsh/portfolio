@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
+import { MotionGate } from "@/components/MotionGate";
 import { Nav } from "@/components/Nav";
 import { ScrollProgress } from "@/components/ScrollProgress";
 import { site } from "@/content/site";
@@ -43,6 +44,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${inter.variable} ${geistMono.variable}`}
     >
       <body className="min-h-dvh bg-bg text-ink">
+        <MotionGate />
         <ScrollProgress />
 
         <a

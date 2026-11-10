@@ -293,7 +293,7 @@
   border-radius: 9999px;
   background-color: var(--gold);
   content: "";
-  animation: status-ring 3.2s ease-out infinite;
+  opacity: 0;
 }
 
 .waveform-band {
@@ -321,16 +321,6 @@
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .waveform-idle .waveform-band {
-    animation: waveform-drift var(--drift, 7s) ease-in-out infinite alternate;
-  }
-
-  .waveform-idle:hover .waveform-band {
-    animation: waveform-pulse 0.9s ease-in-out infinite;
-  }
-}
-
 @keyframes scroll-cue {
   0% {
     transform: scaleY(0);
@@ -351,23 +341,36 @@
 }
 
 .scroll-cue-line {
-  animation: scroll-cue 2.6s ease-in-out infinite;
+  transform-origin: top;
+}
+
+/* Ambient loops only start after the visitor interacts, so the first paint and
+   any programmatic load stay animation-free. One-shot entrances still run. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-motion="on"] .status-dot::after {
+    animation: status-ring 3.2s ease-out infinite;
+  }
+
+  html[data-motion="on"] .scroll-cue-line {
+    animation: scroll-cue 2.6s ease-in-out infinite;
+  }
+
+  html[data-motion="on"] .waveform-idle .waveform-band {
+    animation: waveform-drift var(--drift, 7s) ease-in-out infinite alternate;
+  }
+
+  html[data-motion="on"] .waveform-idle:hover .waveform-band {
+    animation: waveform-pulse 0.9s ease-in-out infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   [data-reveal="visible"],
-  .line-mask > span,
-  .status-dot::after,
-  .waveform-band,
-  .scroll-cue-line {
+  .line-mask > span {
     animation: none;
   }
 
   .line-mask > span {
     transform: none;
-  }
-
-  .status-dot::after {
-    opacity: 0;
   }
 }
