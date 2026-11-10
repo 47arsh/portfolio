@@ -54,6 +54,8 @@ export interface ShippedProject {
 
 export interface OpenSourceContribution {
   project: string;
+  /** Pull request number, if known. */
+  number?: number;
   projectUrl: string;
   description: string;
   prUrl: string;

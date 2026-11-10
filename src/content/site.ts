@@ -85,6 +85,7 @@ export const site: SiteContent = {
   openSource: [
     {
       project: "YUI",
+      number: 1237,
       projectUrl: "{{TODO_URL: repository URL for YUI}}",
       // DRAFTED: owner to review.
       description:
@@ -98,6 +99,7 @@ export const site: SiteContent = {
     },
     {
       project: "YUI",
+      number: 1251,
       projectUrl: "{{TODO_URL: repository URL for YUI}}",
       // DRAFTED: owner to review.
       description:

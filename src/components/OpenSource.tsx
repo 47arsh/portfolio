@@ -1,52 +1,59 @@
 import { site } from "@/content/site";
 import type { OpenSourceContribution } from "@/content/types";
-import {
-  stripPlaceholder,
-} from "@/lib/placeholders";
+import { stripPlaceholder } from "@/lib/placeholders";
+import { EmptyState } from "./EmptyState";
 import { ExternalLink } from "./ExternalLink";
 import { ArrowUpRight } from "./icons";
 import { Placeholder } from "./Placeholder";
 import { Reveal } from "./Reveal";
-import { SectionHeading } from "./SectionHeading";
+import { SectionShell } from "./SectionShell";
 
-function FeaturedContribution({
-  item,
-}: {
-  item: OpenSourceContribution;
-}) {
+function prLabel(item: OpenSourceContribution): string {
+  return typeof item.number === "number" ? `#${item.number}` : "PR";
+}
+
+function FeaturedContribution({ item }: { item: OpenSourceContribution }) {
   return (
-    <article className="border-t border-line py-8 md:grid md:grid-cols-[220px_1fr] md:gap-10">
+    <article className="group border-t border-line py-10 md:grid md:grid-cols-[84px_minmax(0,1fr)] md:gap-8">
       <div>
-        <h3 className="display text-2xl">
-          <ExternalLink
-            href={item.projectUrl}
-            className="transition-colors hover:text-gold-soft"
-          >
-            <Placeholder value={item.project} />
-          </ExternalLink>
-        </h3>
-        <p className="eyebrow mt-2">
-          <Placeholder value={item.mergedAt} />
+        <p className="font-mono text-lg tracking-[-0.02em] text-gold">
+          {prLabel(item)}
         </p>
+        <p className="eyebrow mt-2">Featured</p>
       </div>
 
-      <div>
-        <p className="prose-quiet max-w-2xl">
+      <div className="mt-4 min-w-0 md:mt-0">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2">
+          <h3 className="display text-[clamp(1.9rem,3.4vw,2.6rem)] leading-none">
+            <ExternalLink
+              href={item.projectUrl}
+              className="transition-colors hover:text-gold-soft"
+            >
+              <Placeholder value={item.project} />
+            </ExternalLink>
+          </h3>
+          <p className="eyebrow">
+            <Placeholder value={item.mergedAt} />
+          </p>
+        </div>
+
+        <p className="prose-quiet mt-4 max-w-[68ch] text-[15px] md:text-base">
           <Placeholder value={item.description} />
         </p>
 
         {item.learned ? (
-          <p className="mt-4 max-w-2xl border-l border-gold/40 pl-4 text-sm italic text-muted">
+          <p className="mt-5 max-w-[62ch] border-l border-gold/40 pl-4 text-sm italic leading-relaxed text-muted">
             What I learned: <Placeholder value={item.learned} />
           </p>
         ) : null}
 
         <ExternalLink
           href={item.prUrl}
-          className="mt-4 inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink underline decoration-line underline-offset-4 transition-colors hover:text-gold-soft hover:decoration-gold"
+          className="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink underline decoration-line-strong underline-offset-4 transition-colors hover:text-gold-soft hover:decoration-gold"
+          ariaLabel={`View ${stripPlaceholder(item.project)} pull request ${prLabel(item)}`}
         >
-          View PR
-          <ArrowUpRight className="size-3.5 text-gold" />
+          View pull request
+          <ArrowUpRight className="size-3.5 text-gold transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </ExternalLink>
       </div>
     </article>
@@ -54,32 +61,52 @@ function FeaturedContribution({
 }
 
 function ContributionRow({ item }: { item: OpenSourceContribution }) {
-  return (
-    <article className="border-t border-line py-5 md:grid md:grid-cols-[220px_1fr_auto] md:items-baseline md:gap-10">
-      <h3 className="text-sm font-medium text-ink">
-        <ExternalLink
-          href={item.projectUrl}
-          className="transition-colors hover:text-gold-soft"
-        >
-          <Placeholder value={item.project} />
-        </ExternalLink>
-      </h3>
+  const projectName = stripPlaceholder(item.project);
 
-      <p className="mt-1 max-w-2xl text-sm text-muted md:mt-0">
-        <Placeholder value={item.description} />
+  return (
+    <article className="group grid grid-cols-[58px_minmax(0,1fr)] gap-x-5 border-t border-line py-6 md:grid-cols-[84px_minmax(0,1fr)_auto] md:gap-x-8">
+      <p className="pt-1 font-mono text-xs tracking-[-0.01em] text-muted transition-colors group-hover:text-gold">
+        {prLabel(item)}
       </p>
 
-      <div className="mt-2 flex items-center gap-4 md:mt-0">
+      <div className="min-w-0">
+        <h3 className="font-serif text-2xl leading-tight text-ink">
+          <ExternalLink
+            href={item.projectUrl}
+            className="transition-colors hover:text-gold-soft"
+          >
+            <Placeholder value={item.project} />
+          </ExternalLink>
+        </h3>
+        <p className="mt-2 max-w-[64ch] text-sm leading-relaxed text-muted transition-colors group-hover:text-ink/75">
+          <Placeholder value={item.description} />
+        </p>
+
+        <div className="mt-3 flex items-center gap-5 md:hidden">
+          <span className="eyebrow">
+            <Placeholder value={item.mergedAt} />
+          </span>
+          <ExternalLink
+            href={item.prUrl}
+            className="eyebrow inline-flex items-center gap-1.5 transition-colors hover:text-ink"
+            ariaLabel={`View ${projectName} pull request ${prLabel(item)}`}
+          >
+            View
+            <ArrowUpRight className="size-3 text-gold" />
+          </ExternalLink>
+        </div>
+      </div>
+
+      <div className="hidden items-center gap-6 md:flex">
         <span className="eyebrow">
           <Placeholder value={item.mergedAt} />
         </span>
         <ExternalLink
           href={item.prUrl}
-          className="inline-flex items-center gap-1 font-mono text-[11px] uppercase tracking-[0.08em] text-muted transition-colors hover:text-ink"
-          ariaLabel={`View pull request for ${stripPlaceholder(item.project)}`}
+          className="inline-flex size-9 items-center justify-center rounded-full border border-line text-muted transition-colors group-hover:border-gold/50 group-hover:text-ink"
+          ariaLabel={`View ${projectName} pull request ${prLabel(item)}`}
         >
-          PR
-          <ArrowUpRight className="size-3.5 text-gold" />
+          <ArrowUpRight className="size-3.5 text-gold transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </ExternalLink>
       </div>
     </article>
@@ -88,44 +115,55 @@ function ContributionRow({ item }: { item: OpenSourceContribution }) {
 
 export function OpenSource() {
   const contributions = site.openSource;
-  if (contributions.length === 0) return null;
-
   const total = contributions.length;
   const projects = new Set(
     contributions.map((item) => item.project.trim().toLowerCase()),
   ).size;
 
   return (
-    <section id="open-source" className="section">
-      <div className="shell">
-        <Reveal>
-          <SectionHeading
-            label="03 / Open source"
-            title="Open source"
-            intro="Pull requests I've sent to other people's projects."
-          />
-          <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-            {total} pull {total === 1 ? "request" : "requests"} across {projects}{" "}
-            {projects === 1 ? "project" : "projects"}
-          </p>
+    <SectionShell
+      id="open-source"
+      index="02"
+      label="Open source"
+      title="Open source"
+      intro="Pull requests I've sent to other people's projects."
+    >
+      <Reveal>
+        {total > 0 ? (
+          <>
+            <div className="mt-8 flex flex-wrap items-baseline justify-between gap-3 border-t border-line pt-4">
+              <p className="eyebrow">
+                {total} pull {total === 1 ? "request" : "requests"}
+              </p>
+              <p className="eyebrow">
+                {projects} {projects === 1 ? "project" : "projects"}
+              </p>
+            </div>
 
-          <div className="mt-10 border-b border-line">
-            {contributions.map((item, index) =>
-              item.featured ? (
-                <FeaturedContribution
-                  key={`${item.project}-${index}`}
-                  item={item}
-                />
-              ) : (
-                <ContributionRow
-                  key={`${item.project}-${index}`}
-                  item={item}
-                />
-              ),
-            )}
-          </div>
-        </Reveal>
-      </div>
-    </section>
+            <div className="border-b border-line">
+              {contributions.map((item, index) =>
+                item.featured ? (
+                  <FeaturedContribution
+                    key={`${item.project}-${index}`}
+                    item={item}
+                  />
+                ) : (
+                  <ContributionRow
+                    key={`${item.project}-${index}`}
+                    item={item}
+                  />
+                ),
+              )}
+            </div>
+          </>
+        ) : (
+          <EmptyState
+            className="mt-10"
+            label="Ledger"
+            note="Pull requests to other projects will be listed here."
+          />
+        )}
+      </Reveal>
+    </SectionShell>
   );
 }
