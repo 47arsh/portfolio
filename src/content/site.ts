@@ -1,27 +1,30 @@
 import type { SiteContent } from "./types";
 
-// TODO(owner): This is the only file with personal content. Replace every
-// {{TODO: ...}} and {{TODO_URL: ...}} value with real information. Run
-// `pnpm placeholders` to generate the checklist, and `pnpm dev` to preview.
-// Never add invented stats, links or dates.
+// TODO(owner): This is the only file with personal content. Fields that are
+// still placeholders are listed in PLACEHOLDERS.md. Run `pnpm placeholders`
+// after editing, and `pnpm dev` to preview. Never add invented stats or links.
 
-// TODO(owner): Fill these once; both the links and the stats integrations read
-// from them.
-const githubUsername = "{{TODO: GitHub username}}";
-const leetcodeUsername = "{{TODO: LeetCode username}}";
+const githubUsername = "47arsh";
+const leetcodeUsername = "arxhx7";
 
 export const site: SiteContent = {
   profile: {
-    name: "{{TODO: full name}}",
-    tagline: "{{TODO: one-line pitch, max 12 words}}",
-    status: "{{TODO: currently building — one short line}}",
-    location: "{{TODO: city, country — optional}}",
-    email: "{{TODO: email address}}",
+    name: "Arshdeep Singh",
+    // DRAFTED: owner to review. Tagline options:
+    // 1. "Student developer working on backends, open source and music."
+    // 2. "I build backends and figure out why they break."
+    // 3. "Backend-focused student who learns by building."
+    // Chosen: option 1, the plainest.
+    tagline: "Student developer working on backends, open source and music.",
+    status: "Building AnytimeDesk as founder.",
+    location: "Jalandhar, Punjab, India",
+    email: "arxhx7@gmail.com",
+    // DRAFTED: owner to review.
     bio: [
-      "{{TODO: bio line 1 — who you are, plainly}}",
-      "{{TODO: bio line 2 — what you are studying or building}}",
-      "{{TODO: bio line 3 — open source, LeetCode or music}}",
-      "{{TODO: bio line 4 — what you want to do next}}",
+      "I'm a B.Tech IT student at NIT Jalandhar, graduating in May 2027 with a CGPA of 8.27.",
+      "I'm most interested in backend work: APIs, databases, auth and system design. I'm also learning about RAG and agentic AI.",
+      "I learn by building. I start with an idea, get stuck, work out why it doesn't work, then make it work. I'm still figuring out what to specialise in.",
+      "Outside code I make music. I used to run a YouTube channel of song remixes.",
     ],
     photo: "{{TODO_URL: /images/photo.jpg — optional, add a photo to public/images}}",
     resumeUrl: "{{TODO_URL: /resume.pdf — add your PDF to public}}",
