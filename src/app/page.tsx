@@ -1,5 +1,6 @@
 import { About } from "@/components/About";
 import { ActivityStrip } from "@/components/ActivityStrip";
+import { BuildLog } from "@/components/BuildLog";
 import { Contact } from "@/components/Contact";
 import { Earlier } from "@/components/Earlier";
 import { FeaturedProject } from "@/components/FeaturedProject";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <OpenSource />
       <ActivityStrip />
       <Sound />
+      <BuildLog />
       <Earlier />
       <About />
       <Contact />
