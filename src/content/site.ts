@@ -33,7 +33,7 @@ export const site: SiteContent = {
       x: "{{TODO: X handle, without the @}}",
       linkedin: "{{TODO_URL: full LinkedIn profile URL}}",
       leetcode: leetcodeUsername,
-      youtube: "{{TODO_URL: full YouTube channel URL}}",
+      youtube: "https://www.youtube.com/@prodArxh",
     },
   },
 
@@ -109,22 +109,28 @@ export const site: SiteContent = {
     },
   ],
 
-  // TODO(owner): Three or four remixes. Add or remove entries freely.
+  // TODO(owner): Add a one-line note to any track when you want one; titles
+  // and links below are the real YouTube uploads. Add or remove entries freely.
   tracks: [
     {
-      title: "{{TODO: remix 1 title}}",
-      note: "{{TODO: one-line note about remix 1}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 1}}",
+      title: "Red Rose - Harman Hundal ( Remix ) | Paani Kinare Yaa Vegas Nu Leju @HarmanHundal",
+      youtubeUrl: "https://youtu.be/5LkBFYzJBuc",
     },
     {
-      title: "{{TODO: remix 2 title}}",
-      note: "{{TODO: one-line note about remix 2}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 2}}",
+      title: "Roti - Sidhu Moose Wala",
+      youtubeUrl: "https://youtu.be/9NM69wOU6bQ",
     },
     {
-      title: "{{TODO: remix 3 title}}",
-      note: "{{TODO: one-line note about remix 3}}",
-      youtubeUrl: "{{TODO_URL: YouTube video URL for remix 3}}",
+      title: "Kaali Hoodie - Sidhu Moose Wala (Full Version) | New Punjabi Song 2024",
+      youtubeUrl: "https://youtu.be/PCHD83p26ck",
+    },
+    {
+      title: "Kadi Te Has Bol Ve - Madan Maddi",
+      youtubeUrl: "https://youtu.be/3NAADa4-p6A",
+    },
+    {
+      title: "AP DHILLON X LANA DEL REY | THE BLACKEST DAY X DISTANCE | prod.Arxh",
+      youtubeUrl: "https://youtu.be/T0GtjOU5JPw",
     },
   ],
 

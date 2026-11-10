@@ -67,7 +67,8 @@ export interface OpenSourceContribution {
 
 export interface Track {
   title: string;
-  note: string;
+  /** Optional one-line note shown under the title. */
+  note?: string;
   youtubeUrl: string;
 }
 
