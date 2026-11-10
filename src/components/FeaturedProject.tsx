@@ -8,6 +8,7 @@ import {
 } from "@/lib/placeholders";
 import { ExternalLink } from "./ExternalLink";
 import { ArrowRight, ArrowUpRight } from "./icons";
+import { LoomFacade } from "./LoomFacade";
 import { Placeholder } from "./Placeholder";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
@@ -126,8 +127,15 @@ export function FeaturedProject() {
               </dl>
             ) : null}
 
+            <div className="mt-8">
+              <LoomFacade
+                videoUrl={featured.demoVideoUrl}
+                title={`${projectName} demo`}
+              />
+            </div>
+
             {featured.screenshots.length > 0 ? (
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {featured.screenshots.map((src, index) => (
                   <Screenshot
                     key={`${src}-${index}`}
