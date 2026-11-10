@@ -2,8 +2,10 @@ import { site } from "@/content/site";
 import { isPlaceholderUrl } from "@/lib/placeholders";
 import { emailHref, socialUrls } from "@/lib/site-links";
 import { ExternalLink } from "./ExternalLink";
+import { HeroPlayButton } from "./HeroPlayButton";
 import { ArrowUpRight } from "./icons";
 import { Placeholder } from "./Placeholder";
+import { Waveform } from "./Waveform";
 
 const isDev = process.env.NODE_ENV !== "production";
 
@@ -75,6 +77,14 @@ export function Hero() {
           />
           <Placeholder value={profile.status} />
         </p>
+
+        {site.heroTrack ? (
+          <div className="mt-6">
+            <HeroPlayButton track={site.heroTrack} />
+          </div>
+        ) : null}
+
+        <Waveform className="mt-10" />
       </div>
     </section>
   );

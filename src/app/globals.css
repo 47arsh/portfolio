@@ -177,6 +177,27 @@
   animation: reveal-rise 400ms ease-out both;
 }
 
+.waveform-bar {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes waveform-pulse {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.55);
+  }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .waveform:hover .waveform-bar {
+    animation: waveform-pulse 1.2s ease-in-out infinite;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   [data-reveal="visible"] {
     animation: none;
