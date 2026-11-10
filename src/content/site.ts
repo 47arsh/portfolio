@@ -80,24 +80,30 @@ export const site: SiteContent = {
     },
   ],
 
-  // TODO(owner): Merged PRs only, newest first. Mark the best one or two with
-  // featured: true and write the `learned` line. Add or remove entries freely.
+  // TODO(owner): Pull requests I submitted, newest first. Confirm merge status
+  // and add the repository and PR URLs. Mark the best one with featured: true.
   openSource: [
     {
-      project: "{{TODO: project 1 name}}",
-      projectUrl: "{{TODO_URL: repository URL for project 1}}",
-      description: "{{TODO: one sentence on the change in project 1}}",
-      prUrl: "{{TODO_URL: PR URL for project 1}}",
-      mergedAt: "{{TODO: month year for project 1}}",
+      project: "YUI",
+      projectUrl: "{{TODO_URL: repository URL for YUI}}",
+      // DRAFTED: owner to review.
+      description:
+        "Fixed the backend turn lifecycle so the thinking filler no longer starts when the chat backend is unconfigured. The config guard now runs before the filler, with Vitest regression tests that mock TurnOutput; checked against 375 backend tests and Biome CI.",
+      prUrl: "{{TODO_URL: PR URL for YUI #1237}}",
+      mergedAt: "{{TODO: month year for YUI #1237}}",
       featured: true,
-      learned: "{{TODO: what the review of project 1 taught you}}",
+      // DRAFTED: owner to review.
+      learned:
+        "Fail fast before any background work starts. The regression test keeps that order in place.",
     },
     {
-      project: "{{TODO: project 2 name}}",
-      projectUrl: "{{TODO_URL: repository URL for project 2}}",
-      description: "{{TODO: one sentence on the change in project 2}}",
-      prUrl: "{{TODO_URL: PR URL for project 2}}",
-      mergedAt: "{{TODO: month year for project 2}}",
+      project: "YUI",
+      projectUrl: "{{TODO_URL: repository URL for YUI}}",
+      // DRAFTED: owner to review.
+      description:
+        "Fixed a streaming cue duplication bug where a silent turn could forward the same voice cue through both the express event and the completed-turn fallback. Added regression tests and passed 71/71 targeted tests, typecheck, Biome and 8/8 CI checks.",
+      prUrl: "{{TODO_URL: PR URL for YUI #1251}}",
+      mergedAt: "{{TODO: month year for YUI #1251}}",
     },
   ],
 
