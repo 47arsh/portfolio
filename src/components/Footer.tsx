@@ -7,22 +7,22 @@ export function Footer() {
 
   return (
     <footer className="border-t border-line">
-      <div className="shell flex flex-col gap-4 py-10 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-serif text-base text-ink">
+      <div className="shell flex flex-col gap-4 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <p className="font-serif text-lg tracking-tight text-ink">
           <Placeholder value={site.profile.name} />
-          <span className="ml-2 font-sans text-xs text-muted">© {year}</span>
+          <span className="ml-2 font-sans text-[11px] text-muted">
+            © {year}
+          </span>
         </p>
 
-        <p className="text-xs text-muted">
-          Built with Next.js and Tailwind CSS.
-        </p>
+        <p className="eyebrow">Next.js · Tailwind CSS</p>
 
         <a
           href="#top"
-          className="group inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[0.08em] text-muted transition-colors hover:text-ink"
+          className="group inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted transition-colors hover:text-ink"
         >
           Back to top
-          <ArrowUp className="size-3.5 text-gold transition-transform duration-150 group-hover:-translate-y-0.5" />
+          <ArrowUp className="size-3.5 text-gold transition-transform duration-200 group-hover:-translate-y-0.5" />
         </a>
       </div>
     </footer>
