@@ -58,8 +58,8 @@ export function Hero() {
           </span>
         </h1>
 
-        <div className="mt-12 flex flex-1 flex-col justify-end gap-12 md:mt-12 md:grid md:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] md:items-end md:gap-16">
-          <div className="order-2 flex flex-col items-start gap-6 md:order-1">
+        <div className="mt-12 flex flex-1 flex-col justify-end gap-12 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(300px,400px)] lg:items-end lg:gap-16">
+          <div className="order-2 flex flex-col items-start gap-6 lg:order-1">
             <p className="inline-flex max-w-full items-center gap-2.5 rounded-full border border-line bg-surface/50 px-4 py-2 text-[13px] leading-snug text-ink/90">
               <span aria-hidden="true" className="status-dot size-1.5 shrink-0 rounded-full bg-gold" />
               <Placeholder value={profile.status} />
@@ -70,7 +70,7 @@ export function Hero() {
             ) : null}
           </div>
 
-          <div className="order-1 md:order-2">
+          <div className="order-1 lg:order-2">
             <p className="lead max-w-[38ch]">
               <Placeholder value={profile.tagline} />
             </p>
