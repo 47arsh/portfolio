@@ -8,30 +8,38 @@ type ScreenshotProps = {
   src: string;
   alt: string;
   label: string;
+  className?: string;
 };
 
-export function Screenshot({ src, alt, label }: ScreenshotProps) {
+export function Screenshot({ src, alt, label, className }: ScreenshotProps) {
   if (isPlaceholderUrl(src)) {
     return (
       <div
-        className={cx(
-          "flex aspect-[16/10] items-center justify-center rounded-[10px] border bg-surface",
-          isDev ? "border-dashed border-gold/35" : "border-line",
-        )}
         data-placeholder=""
+        className={cx(
+          "flex min-h-[88px] flex-col justify-center gap-1 border-y px-5 py-4",
+          isDev ? "border-dashed border-gold/30" : "border-line",
+          className,
+        )}
       >
-        <span className="eyebrow">{label}</span>
+        <p className="eyebrow">{label}</p>
+        <p className="text-sm text-muted">Image coming soon</p>
       </div>
     );
   }
 
   return (
-    <div className="relative aspect-[16/10] overflow-hidden rounded-[10px] border border-line bg-surface">
+    <div
+      className={cx(
+        "relative aspect-[16/10] overflow-hidden rounded-[6px] border border-line bg-surface",
+        className,
+      )}
+    >
       <Image
         src={src}
         alt={alt}
         fill
-        sizes="(min-width: 768px) 50vw, 100vw"
+        sizes="(min-width: 1024px) 55vw, 100vw"
         className="object-cover"
       />
     </div>
