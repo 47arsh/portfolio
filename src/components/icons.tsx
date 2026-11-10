@@ -22,6 +22,26 @@ export function ArrowUpRight({ className }: IconProps) {
   );
 }
 
+export function ArrowLeft({ className }: IconProps) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      viewBox="0 0 16 16"
+      fill="none"
+      className={className}
+    >
+      <path
+        d="M13 8H3M7 4 3 8l4 4"
+        stroke="currentColor"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function ArrowRight({ className }: IconProps) {
   return (
     <svg
