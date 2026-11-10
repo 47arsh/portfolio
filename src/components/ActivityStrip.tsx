@@ -33,7 +33,7 @@ export async function ActivityStrip() {
 
   const solved = leetcode?.solved ?? site.stats.leetcode.solved;
   const streak = leetcode?.streak ?? site.stats.leetcode.streak;
-  const merged = site.openSource.length;
+  const pullRequests = site.openSource.length;
 
   return (
     <section
@@ -67,8 +67,8 @@ export async function ActivityStrip() {
 
         <div className="border-t border-line pt-6 md:border-l md:border-t-0 md:pl-10 md:pt-0">
           <p className="eyebrow">Open source</p>
-          <p className="display mt-2 text-2xl">{merged}</p>
-          <p className="eyebrow mt-1">Merged PRs</p>
+          <p className="display mt-2 text-2xl">{pullRequests}</p>
+          <p className="eyebrow mt-1">Pull requests</p>
         </div>
       </div>
     </section>

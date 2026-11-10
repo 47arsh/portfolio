@@ -31,6 +31,10 @@ chosen and why, so the owner can revisit it.
 - **Placeholder entries exist in list sections.** One or two placeholder rows
   per list keep the layout honest and show where content goes. They are clearly
   marked and tracked; the merged-PR count is computed from whatever rows exist.
+- **Open source rows are labelled pull requests, not merged PRs.** The supplied
+  facts confirm that the two YUI PRs were submitted, not that they were merged.
+  The data field `mergedAt` remains for the date, but no UI copy claims a merge
+  until the owner confirms the status.
 - **Optional hero audio is `null`.** No direct audio file was supplied, so the
   hero play button is implemented but not rendered. Set `heroTrack` in
   `src/content/site.ts` to enable it. Nothing ever autoplays.

@@ -102,10 +102,10 @@ export function OpenSource() {
           <SectionHeading
             label="03 / Open source"
             title="Open source"
-            intro="Merged contributions to other people's projects."
+            intro="Pull requests I've sent to other people's projects."
           />
           <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.08em] text-muted">
-            {total} merged {total === 1 ? "PR" : "PRs"} across {projects}{" "}
+            {total} pull {total === 1 ? "request" : "requests"} across {projects}{" "}
             {projects === 1 ? "project" : "projects"}
           </p>
 

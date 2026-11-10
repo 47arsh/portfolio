@@ -56,7 +56,7 @@ so this is the only file you need to edit for copy, links and dates.
 | Contact | `profile.email`, `socials` | Hero, contact, footer |
 | Featured project | `featured.*` | Featured card and `/work/anytimedesk` |
 | Smaller tools | `shipped[]` | Shipped list |
-| Merged PRs | `openSource[]` (`featured`, `learned`) | Open source and activity count |
+| Open source PRs | `openSource[]` (`featured`, `learned`) | Open source and activity count |
 | Music | `tracks[]` | Sound |
 | Dates and notes | `log[]` | Build log (newest first) |
 | College projects | `earlier[]` | Earlier work |
