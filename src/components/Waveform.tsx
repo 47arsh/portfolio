@@ -42,26 +42,48 @@ export function Waveform({ className, variant = "accent" }: WaveformProps) {
         preserveAspectRatio="none"
         className={hero ? "h-10 w-full" : "h-8 w-full max-w-[216px]"}
       >
-        {heights.map((barHeight, index) => (
-          <line
-            key={index}
-            x1={index * step + step / 2}
-            y1={height / 2 - barHeight / 2}
-            x2={index * step + step / 2}
-            y2={height / 2 + barHeight / 2}
-            stroke="currentColor"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            vectorEffect="non-scaling-stroke"
-            className="waveform-bar"
-            style={
-              {
-                animationDelay: `${index * (hero ? 70 : 45)}ms`,
-                "--drift": `${5.5 + (index % 5) * 0.65}s`,
-              } as CSSProperties
-            }
-          />
-        ))}
+        {hero
+          ? Array.from({ length: 4 }, (_, band) => (
+              <g
+                key={band}
+                className="waveform-band"
+                style={
+                  {
+                    animationDelay: `${band * 180}ms`,
+                    "--drift": `${7.4 + band * 0.8}s`,
+                  } as CSSProperties
+                }
+              >
+                {heights.map((barHeight, index) =>
+                  index % 4 === band ? (
+                    <line
+                      key={index}
+                      x1={index * step + step / 2}
+                      y1={height / 2 - barHeight / 2}
+                      x2={index * step + step / 2}
+                      y2={height / 2 + barHeight / 2}
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      vectorEffect="non-scaling-stroke"
+                    />
+                  ) : null,
+                )}
+              </g>
+            ))
+          : heights.map((barHeight, index) => (
+              <line
+                key={index}
+                x1={index * step + step / 2}
+                y1={height / 2 - barHeight / 2}
+                x2={index * step + step / 2}
+                y2={height / 2 + barHeight / 2}
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+              />
+            ))}
       </svg>
     </div>
   );

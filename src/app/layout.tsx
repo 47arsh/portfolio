@@ -43,7 +43,6 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${inter.variable} ${geistMono.variable}`}
     >
       <body className="min-h-dvh bg-bg text-ink">
-        <div aria-hidden="true" className="grain" />
         <ScrollProgress />
 
         <a
