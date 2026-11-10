@@ -1,22 +1,27 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cx } from "@/lib/format";
 import { Placeholder } from "./Placeholder";
 
 const NAV_LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#open-source", label: "Open source" },
-  { href: "#sound", label: "Sound" },
-  { href: "#log", label: "Log" },
-  { href: "#contact", label: "Contact" },
+  { id: "work", label: "Work" },
+  { id: "open-source", label: "Open source" },
+  { id: "sound", label: "Sound" },
+  { id: "log", label: "Log" },
+  { id: "contact", label: "Contact" },
 ] as const;
 
 export function Nav({ siteName }: { siteName: string }) {
+  const pathname = usePathname();
   const [elevated, setElevated] = useState(false);
   const [active, setActive] = useState<string>("");
   const [open, setOpen] = useState(false);
+
+  const isHome = pathname === "/";
+  const hrefFor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 
   useEffect(() => {
     let frame = 0;
@@ -25,20 +30,25 @@ export function Nav({ siteName }: { siteName: string }) {
       frame = 0;
       setElevated(window.scrollY > 8);
 
+      if (!isHome) {
+        setActive("");
+        return;
+      }
+
       const marker = window.scrollY + 140;
       let current = "";
 
       for (const link of NAV_LINKS) {
-        const section = document.getElementById(link.href.slice(1));
+        const section = document.getElementById(link.id);
         if (section && section.offsetTop <= marker) {
-          current = link.href;
+          current = link.id;
         }
       }
 
       const atBottom =
         window.innerHeight + window.scrollY >=
         document.documentElement.scrollHeight - 8;
-      if (atBottom) current = NAV_LINKS[NAV_LINKS.length - 1].href;
+      if (atBottom) current = "contact";
 
       setActive(current);
     };
@@ -56,7 +66,7 @@ export function Nav({ siteName }: { siteName: string }) {
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [isHome]);
 
   useEffect(() => {
     if (!open) return;
@@ -82,7 +92,6 @@ export function Nav({ siteName }: { siteName: string }) {
         <Link
           href="/"
           className="flex min-w-0 items-center gap-2.5"
-          aria-label="Home"
         >
           <span
             aria-hidden="true"
@@ -91,15 +100,16 @@ export function Nav({ siteName }: { siteName: string }) {
           <span className="truncate font-serif text-lg tracking-tight text-ink">
             <Placeholder value={siteName} />
           </span>
+          <span className="sr-only">— home</span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 md:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = active === link.href;
+            const isActive = active === link.id;
             return (
               <Link
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href={hrefFor(link.id)}
                 aria-current={isActive ? "location" : undefined}
                 className={cx(
                   "relative py-1 font-mono text-[11px] uppercase tracking-[0.08em] transition-colors duration-150",
@@ -160,9 +170,10 @@ export function Nav({ siteName }: { siteName: string }) {
           <nav aria-label="Mobile" className="shell flex flex-col py-2">
             {NAV_LINKS.map((link) => (
               <Link
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href={hrefFor(link.id)}
                 onClick={() => setOpen(false)}
+                aria-current={active === link.id ? "location" : undefined}
                 className="border-b border-line/60 py-3 font-mono text-xs uppercase tracking-[0.08em] text-muted transition-colors last:border-0 hover:text-ink"
               >
                 {link.label}
