@@ -168,9 +168,11 @@ export const site: SiteContent = {
     },
     leetcode: {
       username: leetcodeUsername,
-      solved: null,
+      solved: 800,
+      rating: 1538,
       streak: null,
     },
+    achievements: ["Second position, Code Relay, Cybernauts Society"],
   },
 
   // TODO(owner): Optional. Set to { title, audioUrl } when you have a direct

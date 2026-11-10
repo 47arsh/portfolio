@@ -95,8 +95,12 @@ export interface SiteStats {
     username: string;
     /** Manual fallback, used only when the live fetch fails. */
     solved: number | null;
+    /** Manual fallback, used only when the live fetch fails. */
+    rating?: number | null;
     streak: number | null;
   };
+  /** Short achievement lines, e.g. contest placements. */
+  achievements?: string[];
 }
 
 export interface SiteContent {
