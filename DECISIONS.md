@@ -56,6 +56,36 @@ chosen and why, so the owner can revisit it.
   to `i.ytimg.com` for video thumbnails. Screenshots and the optional photo are
   local files under `public/`.
 
+## Design audit before the redesign
+
+Screenshots were taken at 1440 and 390 with the real content in place. The
+problems, worst first:
+
+1. **The hero has no composition.** Everything sits in one left column; the
+   right 60% of the first screen is empty. The name is big, but nothing anchors
+   the other side, so the page looks unfinished.
+2. **Every section header is the same.** A tiny mono label, a 2rem serif title
+   and a muted intro, all full width. There is no label column and no hierarchy
+   between a major section and a project.
+3. **Nothing uses the grid.** The shell is 1080px wide, but every section is a
+   centered single column. That is what makes it read like a template.
+4. **Type contrast is weak below the hero.** 11px labels and 14px body text sit
+   too close together; section titles are barely larger than project titles.
+5. **Gold is wallpaper.** The same dot and 24px hairline appear in every section,
+   so the accent never actually highlights anything.
+6. **Placeholder media is the loudest thing on the page.** A full 16:9 Loom frame
+   and three YouTube frames are the biggest shapes on screen and contain nothing.
+7. **Placeholder-only lists look broken.** Shipped, Sound and Build log render
+   fake rows and TODO text, so those sections read as unfinished instead of
+   intentionally quiet.
+8. **The featured project buries its facts.** Role and stack are small tags, the
+   spec is scattered, and the case study link disappears at the card footer.
+9. **Open source and earlier work read like admin tables.** No PR numbers, no
+   scan anchors, almost no hover feedback; the eye has nothing to land on.
+10. **There is no closing or texture.** About and Contact reuse the header-plus-
+    paragraph pattern; the page ends without a statement, and there is no scroll
+    cue, local detail or surface variation anywhere.
+
 ## SEO and polish
 
 - **One metadata module builds every canonical, OG and Twitter value.** It reads
