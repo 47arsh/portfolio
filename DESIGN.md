@@ -60,7 +60,8 @@ A single, almost invisible radial warmth sits behind the hero: `--hero-warmth` a
 ## Motion
 - Hero name: each line rises out of a mask once, 600ms, staggered 90ms, ease `cubic-bezier(0.22, 1, 0.36, 1)`.
 - Section reveal: fade + 14px upward translate, 500ms, once, on intersection.
-- Hover and focus transitions 150 to 250ms. Status dot pulses over 3.2s.
+- Hover and focus transitions 150 to 250ms. The status dot pulses over 3.2s.
+- Ambient loops (waveform drift, status pulse, scroll cue) begin only after the first pointer, wheel or key interaction. Until then the hero is still, so the first paint costs no animation frames.
 - No parallax, no cursor effects, no particle backgrounds, no scroll-jacking.
 - Respect `prefers-reduced-motion`: mask reveal, drift, pulse and reveals collapse to static.
 

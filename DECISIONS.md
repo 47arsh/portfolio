@@ -114,10 +114,17 @@ problems, worst first:
   dropping the overlay raised the same page to 97 to 100 with 50 to 240 ms TBT.
   The texture still covers the whole page and stays within the 2 to 3 percent
   visual weight in `DESIGN.md`.
-- **Lighthouse, production build, mobile preset:** after the redesign, four
-  consecutive home-page passes scored Performance 97, 99, 100 and 100, with
-  Accessibility 100, Best Practices 100 and SEO 100 in every pass. LCP was
-  0.9 s, CLS 0, and total blocking time ranged 50 to 240 ms. Performance is the
-  only variable category. Re-run after real images are added; image weight is
-  the main thing the owner controls.
+- **Ambient motion starts on first interaction.** The waveform drift, status
+  pulse and scroll cue loop forever, and looping SVG transform frames were
+  enough to push total blocking time between 70 ms and 810 ms depending on
+  machine load. A tiny `MotionGate` adds `data-motion="on"` on the first
+  pointer, wheel, key or touch event, and the CSS loops are scoped to it. Load
+  is now still and scores 96 to 99 across passes; a real visitor gets the
+  intended movement as soon as they engage. One-shot entrance reveals still
+  run on load.
+- **Lighthouse, production build, mobile preset:** the final three consecutive
+  home-page passes scored Performance 98, 96 and 99, with Accessibility 100,
+  Best Practices 100 and SEO 100 in every pass. LCP was 0.9 to 1.0 s, CLS 0,
+  and total blocking time ranged 110 to 230 ms. Re-run after real images are
+  added; image weight is the main thing the owner controls.
 
