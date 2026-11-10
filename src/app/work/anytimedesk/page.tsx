@@ -14,12 +14,35 @@ import { isPlaceholder, stripPlaceholder } from "@/lib/placeholders";
 
 const { featured } = site;
 const projectName = stripPlaceholder(featured.name);
+const caseStudyTitle = `${projectName} — case study`;
+const caseStudyDescription = isPlaceholder(featured.oneLiner)
+  ? `A case study of ${projectName}.`
+  : stripPlaceholder(featured.oneLiner);
+
+const caseStudyImage = {
+  url: "/opengraph-image",
+  width: 1200,
+  height: 630,
+  alt: "Portfolio",
+};
 
 export const metadata: Metadata = {
-  title: `${projectName} — case study`,
-  description: isPlaceholder(featured.oneLiner)
-    ? `A case study of ${projectName}.`
-    : stripPlaceholder(featured.oneLiner),
+  title: { absolute: caseStudyTitle },
+  description: caseStudyDescription,
+  alternates: { canonical: `/work/${featured.slug}` },
+  openGraph: {
+    type: "article",
+    url: `/work/${featured.slug}`,
+    title: caseStudyTitle,
+    description: caseStudyDescription,
+    images: [caseStudyImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: caseStudyTitle,
+    description: caseStudyDescription,
+    images: [caseStudyImage],
+  },
 };
 
 export default function AnytimeDeskCaseStudyPage() {

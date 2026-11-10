@@ -3,6 +3,7 @@ import { Geist_Mono, Instrument_Serif, Inter } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
 import { site } from "@/content/site";
+import { baseMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -25,10 +26,7 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio.",
-};
+export const metadata: Metadata = baseMetadata;
 
 export const viewport: Viewport = {
   themeColor: "#0A0A0B",
@@ -52,7 +50,7 @@ export default function RootLayout({
         </a>
 
         <Nav siteName={site.profile.name} />
-        <main id="main">{children}</main>
+        <main id="main" tabIndex={-1} className="outline-none">{children}</main>
         <Footer />
       </body>
     </html>
