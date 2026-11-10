@@ -145,14 +145,18 @@ export const site: SiteContent = {
 
   // TODO(owner): College projects worth showing. Leave this array empty to hide
   // the section entirely.
+  // DRAFTED: owner to review both descriptions.
   earlier: [
     {
-      title: "{{TODO: earlier project 1 title}}",
-      description: "{{TODO: one line on what earlier project 1 was}}",
+      title: "CampusGigs",
+      description:
+        "A campus errands marketplace. React, Node, Express, MongoDB and JWT, with real-time Socket.IO notifications and an atomic accept step so two people can't take the same task. The RAG assistant used FastAPI, LangChain, ChromaDB and Gemini, with document ingestion, chunking, retrieval and source attribution.",
+      url: "https://github.com/47arsh/CampusGigs",
     },
     {
-      title: "{{TODO: earlier project 2 title}}",
-      description: "{{TODO: one line on what earlier project 2 was}}",
+      title: "CodeCollab",
+      description:
+        "A real-time collaborative code editor. React, Node, Express, Socket.IO, Yjs and CodeMirror. Isolated rooms, sandboxed JavaScript with timeouts, tested with six clients on desktop and mobile.",
     },
   ],
 
