@@ -37,5 +37,5 @@ export function youtubeThumbnail(id: string): string {
 }
 
 export function youtubeEmbedUrl(id: string): string {
-  return `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+  return `https://www.youtube-nocookie.com/embed/${id}?rel=0`;
 }

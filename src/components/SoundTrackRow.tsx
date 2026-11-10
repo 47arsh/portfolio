@@ -10,7 +10,7 @@ import {
   youtubeId,
   youtubeThumbnail,
 } from "@/lib/youtube";
-import { Pause, Play } from "./icons";
+import { Play } from "./icons";
 import { Placeholder } from "./Placeholder";
 
 const GLYPH = [6, 13, 9, 17, 7];
@@ -34,9 +34,11 @@ export function SoundTrackRow({ track, index }: SoundTrackRowProps) {
           <p className="font-serif text-xl text-muted">
             <Placeholder value={track.title} />
           </p>
-          <p className="mt-1 text-sm text-muted">
-            <Placeholder value={track.note} />
-          </p>
+          {track.note ? (
+            <p className="mt-1 text-sm text-muted">
+              <Placeholder value={track.note} />
+            </p>
+          ) : null}
         </div>
         <span className="eyebrow">Coming soon</span>
       </li>
@@ -50,7 +52,7 @@ export function SoundTrackRow({ track, index }: SoundTrackRowProps) {
         onClick={() => setActive((value) => !value)}
         aria-expanded={active}
         aria-label={
-          active ? `Hide the ${title} video` : `Play the ${title} video`
+          active ? `Hide the ${title} player` : `Load the ${title} player`
         }
         className="group grid w-full grid-cols-[32px_minmax(0,1fr)_72px] items-center gap-x-4 py-4 text-left md:grid-cols-[44px_minmax(0,1fr)_150px_120px] md:gap-x-6"
       >
@@ -62,9 +64,11 @@ export function SoundTrackRow({ track, index }: SoundTrackRowProps) {
           <span className="block font-serif text-xl leading-snug text-ink md:text-2xl">
             <Placeholder value={track.title} />
           </span>
-          <span className="mt-1 block text-sm text-muted">
-            <Placeholder value={track.note} />
-          </span>
+          {track.note ? (
+            <span className="mt-1 block text-sm text-muted">
+              <Placeholder value={track.note} />
+            </span>
+          ) : null}
         </span>
 
         <span
@@ -94,11 +98,7 @@ export function SoundTrackRow({ track, index }: SoundTrackRowProps) {
           <span aria-hidden="true" className="absolute inset-0 bg-black/25" />
           <span className="absolute inset-0 flex items-center justify-center rounded-full text-gold">
             <span className="flex size-7 items-center justify-center rounded-full border border-gold/70 bg-bg/40">
-              {active ? (
-                <Pause className="size-3" />
-              ) : (
-                <Play className="ml-0.5 size-3" />
-              )}
+              <Play className="ml-0.5 size-3" />
             </span>
           </span>
         </span>
